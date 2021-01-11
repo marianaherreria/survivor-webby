@@ -52,14 +52,12 @@ img {
 
 .people img {
     border: 6px solid white;
+    margin-top: 15px;
 }
 
 p.person-label {
     margin-top: 15px;
-}
-
-.wolfpack img {
-    margin-top: 15px;
+    margin-bottom: -10px;
 }
 
 nav {
