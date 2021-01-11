@@ -1,0 +1,52 @@
+body {
+    background-image: url("https://2.bp.blogspot.com/-gG5r6xwG7gI/X6r6vColjEI/AAAAAAAAJyg/EWhtUIUb90woFrtN1ggjsrXzub2MvWKLACK4BGAYYCw/w1200/icebackground.jpg");
+    background-size: cover;
+    font-family: 'Courier New';
+    color: #D52C1F;
+}
+
+.content {
+    background-color: rgb(121, 185, 241);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    padding-top: 1px;
+
+}
+
+.title {
+    font-size: 60px;
+    font-weight: lighter;
+    text-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(rgba(255, 255, 255, 0.3), transparent);
+    padding: 20px;
+    margin: 10px -27px;
+}
+
+.date {
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;
+}
+
+.group-label {
+    font-family: Arial;
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+.people {
+    text-align: center;
+}
+
+.people p {
+    margin: 3px;
+    font-size: 13px;
+}
+
+.people img {
+    border: 6px solid white;
+    margin-top: 10px;
+}
