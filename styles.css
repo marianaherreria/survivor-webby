@@ -1,8 +1,12 @@
 body {
     background-image: url("https://2.bp.blogspot.com/-gG5r6xwG7gI/X6r6vColjEI/AAAAAAAAJyg/EWhtUIUb90woFrtN1ggjsrXzub2MvWKLACK4BGAYYCw/w1200/icebackground.jpg");
-    background-size: cover;
+    background-size: 100%;
     font-family: 'Courier New';
     color: #D52C1F;
+}
+
+img {
+    max-width: 100%;
 }
 
 .content {
@@ -51,6 +55,10 @@ body {
     margin-top: 10px;
 }
 
+nav {
+    margin-bottom: 10px;
+}
+
 nav a, nav a:visited {
     color: #D52C1F;
     margin-right: 8px;
@@ -72,4 +80,42 @@ nav a::after {
 
 nav a:hover::after, nav a.active::after {
     width: 100%;
+}
+
+.home {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.home-image {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.home img {
+    width: 500px;
+    transition: 0.8s all;
+    position: relative;
+    z-index: 10;
+}
+
+.home img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 480px;
+    z-index: 0;
+    opacity: 0;
+    transition: 0s all;
+}  
+
+.home img:nth-child(1):hover {
+    opacity: 0;
+}
+
+.home img:nth-child(1):hover + img {
+    opacity: 1;
 }
