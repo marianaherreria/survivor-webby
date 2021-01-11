@@ -7,7 +7,7 @@ body {
 
 .content {
     background-color: rgb(121, 185, 241);
-    width: 60%;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
@@ -16,7 +16,7 @@ body {
 }
 
 .title {
-    font-size: 60px;
+    font-size: 4rem;
     font-weight: lighter;
     text-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
     background: linear-gradient(rgba(255, 255, 255, 0.3), transparent);
@@ -26,14 +26,14 @@ body {
 
 .date {
     font-family: Arial;
-    font-size: 11px;
+    font-size: 0.8rem;
     font-weight: bold;
     color: black;
 }
 
 .group-label {
     font-family: Arial;
-    font-size: 22px;
+    font-size: 1.4rem;
     font-weight: lighter;
 }
 
@@ -43,10 +43,33 @@ body {
 
 .people p {
     margin: 3px;
-    font-size: 13px;
+    font-size: 0.9rem;
 }
 
 .people img {
     border: 6px solid white;
     margin-top: 10px;
+}
+
+nav a, nav a:visited {
+    color: #D52C1F;
+    margin-right: 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: ' ';
+    height: 1px;
+    width: 0px;
+    background-color: #D52C1F;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    transition: 0.3s all;
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
 }
