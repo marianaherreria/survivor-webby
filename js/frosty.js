@@ -6,6 +6,8 @@ let height = document.innerHeight;
 const body = document.body;
 const elWrapper = document.querySelector(".frosty-wrapper");
 
+const MAX_FROSTYS = 40;
+
 window.onresize = () => {
     width = window.innerWidth;
     height = document.innerHeight;
@@ -142,11 +144,17 @@ function animationLoop() {
 animationLoop();
 
 function addfrostys(e) {
-    if (frostys.length > 40) {
+
+    let diff = MAX_FROSTYS - frostys.length;
+
+    if (diff <= 0) {
         return;
     }
+
+    let frostysToAdd = Math.min(20, diff);
+
     //cancelAnimationFrame(frame);
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < frostysToAdd; i++) {
         frostys.push(createfrosty(e));
     }
 }
