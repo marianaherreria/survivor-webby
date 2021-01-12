@@ -1,7 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@200&family=Xanh+Mono&family=Yusei+Magic&display=swap');
+
 body {
     background-image: url("https://images.unsplash.com/photo-1593936639737-35be481dc1d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
     background-size: 100%;
-    font-family: 'Courier New';
+    font-family: 'Xanh Mono', monospace;
     color: #4F4759;
     margin: 0;
     padding: 0;
@@ -31,15 +34,8 @@ img {
     margin: 10px -27px;
 }
 
-.date {
-    font-family: Arial;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: black;
-}
-
 .group-label {
-    font-family: Arial;
+    font-family: 'Yusei Magic', sans-serif;
     font-size: 1.4rem;
     font-weight: lighter;
     margin-top: 50px;
@@ -71,7 +67,7 @@ nav {
 
 /* styles for the nav */
 nav a, nav a:visited {
-    color: #D52C1F;
+    color: #F2F4F2;
     margin-right: 8px;
     font-size: 1.2rem;
     text-decoration: none;
@@ -82,7 +78,7 @@ nav a::after {
     content: ' ';
     height: 1px;
     width: 0px;
-    background-color: #D52C1F;
+    background-color: #F2F4F2;
     position: absolute;
     bottom: -1px;
     left: 0;
