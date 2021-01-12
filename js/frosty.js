@@ -1,10 +1,10 @@
-window.addEventListener("click", addBlossoms);
+window.addEventListener("click", addfrostys);
 
 let width = window.innerWidth;
-let height = winndow.innerHeight;
+let height = window.innerHeight;
 
 const body = document.body;
-const elWrapper = document.querySelector(".blossom-wrapper");
+const elWrapper = document.querySelector(".frosty-wrapper");
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -14,7 +14,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const blossoms = [];
+const frostys = [];
 const radius = 20;
 
 const Cd = 0.47; // Dimensionless
@@ -23,12 +23,12 @@ const A = (Math.PI * radius * radius) / 10000; // m^2
 const ag = 9.81; // m / s^2
 const frameRate = 1 / 60;
 
-function createblossom(e) /* create a blossom */ {
+function createfrosty(e) /* create a frosty */ {
     const vx = getRandomArbitrary(-10, 10); // x velocity
     const vy = getRandomArbitrary(-10, 1); // y velocity
 
     const el = document.createElement("div");
-    el.className = "blossom";
+    el.className = "frosty";
 
     elWrapper.append(el);
 
@@ -36,7 +36,7 @@ function createblossom(e) /* create a blossom */ {
 
     el.style.setProperty("--lifetime", lifetime);
 
-    const blossom = {
+    const frosty = {
         el,
         absolutePosition: { x: width / 2, y: 0 },
         position: { x: e.pageX, y: e.pageY },
@@ -54,53 +54,53 @@ function createblossom(e) /* create a blossom */ {
         },
 
         animate() {
-            const blossom = this;
+            const frosty = this;
             let Fx =
                 (-0.5 *
                     Cd *
                     A *
                     rho *
-                    blossom.velocity.x *
-                    blossom.velocity.x *
-                    blossom.velocity.x) /
-                Math.abs(blossom.velocity.x);
+                    frosty.velocity.x *
+                    frosty.velocity.x *
+                    frosty.velocity.x) /
+                Math.abs(frosty.velocity.x);
             let Fy =
                 (-0.5 *
                     Cd *
                     A *
                     rho *
-                    blossom.velocity.y *
-                    blossom.velocity.y *
-                    blossom.velocity.y) /
-                Math.abs(blossom.velocity.y);
+                    frosty.velocity.y *
+                    frosty.velocity.y *
+                    frosty.velocity.y) /
+                Math.abs(frosty.velocity.y);
 
             Fx = isNaN(Fx) ? 0 : Fx;
             Fy = isNaN(Fy) ? 0 : Fy;
 
             // Calculate acceleration ( F = ma )
-            var ax = Fx / blossom.mass;
-            var ay = ag + Fy / blossom.mass;
+            var ax = Fx / frosty.mass;
+            var ay = ag + Fy / frosty.mass;
             // Integrate to get velocity
-            blossom.velocity.x += ax * frameRate;
-            blossom.velocity.y += ay * frameRate;
+            frosty.velocity.x += ax * frameRate;
+            frosty.velocity.y += ay * frameRate;
 
             // Integrate to get position
-            blossom.position.x += blossom.velocity.x * frameRate * 100;
-            blossom.position.y += blossom.velocity.y * frameRate * 100;
+            frosty.position.x += frosty.velocity.x * frameRate * 100;
+            frosty.position.y += frosty.velocity.y * frameRate * 100;
 
-            blossom.checkBounds();
-            blossom.update();
+            frosty.checkBounds();
+            frosty.update();
         },
 
         checkBounds() {
-            if (blossom.position.y + blossom.radius / 2 > height) {
-                blossom.remove();
+            if (frosty.position.y + frosty.radius / 2 > height) {
+                frosty.remove();
             }
-            if (blossom.position.x > width) {
-                blossom.remove();
+            if (frosty.position.x > width) {
+                frosty.remove();
             }
-            if (blossom.position.x + blossom.radius < 0) {
-                blossom.remove();
+            if (frosty.position.x + frosty.radius < 0) {
+                frosty.remove();
             }
         },
 
@@ -114,16 +114,16 @@ function createblossom(e) /* create a blossom */ {
         },
     };
 
-    return blossom;
+    return frosty;
 }
 
 function animationLoop() {
-    var i = blossoms.length;
+    var i = frostys.length;
     while (i--) {
-        blossoms[i].animate();
+        frostys[i].animate();
 
-        if (!blossoms[i].animating) {
-            blossoms.splice(i, 1);
+        if (!frostys[i].animating) {
+            frostys.splice(i, 1);
         }
     }
 
@@ -132,12 +132,12 @@ function animationLoop() {
 
 animationLoop();
 
-function addBlossoms(e) {
-    if (blossoms.length > 40) {
+function addfrostys(e) {
+    if (frostys.length > 40) {
         return;
     }
     //cancelAnimationFrame(frame);
     for (let i = 0; i < 20; i++) {
-        blossoms.push(createblossom(e));
+        frostys.push(createfrosty(e));
     }
 }
