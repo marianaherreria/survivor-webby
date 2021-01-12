@@ -1,10 +1,15 @@
 window.addEventListener("click", addfrostys);
 
 let width = window.innerWidth;
-let height = window.innerHeight;
+let height = document.innerHeight;
 
 const body = document.body;
 const elWrapper = document.querySelector(".frosty-wrapper");
+
+window.onresize = () => {
+    width = window.innerWidth;
+    height = document.innerHeight;
+}
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -43,14 +48,18 @@ function createfrosty(e) /* create a frosty */ {
         velocity: { x: vx, y: vy },
         mass: 0.1, //kg
         radius: el.offsetWidth, // 1px = 1cm
-
+        initialY: e.clientY,
         lifetime,
 
         animating: true,
 
         remove() {
             this.animating = false;
-            this.el.parentNode.removeChild(this.el);
+            try {
+                this.el.parentNode.removeChild(this.el);
+            } catch {
+                console.log("caught error!")
+            }
         },
 
         animate() {
@@ -93,7 +102,7 @@ function createfrosty(e) /* create a frosty */ {
         },
 
         checkBounds() {
-            if (frosty.position.y + frosty.radius / 2 > height) {
+            if (frosty.position.y + frosty.radius / 2 > frosty.initialY + 500) {
                 frosty.remove();
             }
             if (frosty.position.x > width) {
