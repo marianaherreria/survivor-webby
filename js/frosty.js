@@ -48,7 +48,7 @@ function createfrosty(e) /* create a frosty */ {
         velocity: { x: vx, y: vy },
         mass: 0.1, //kg
         radius: el.offsetWidth, // 1px = 1cm
-        initialY: e.clientY,
+        initialY: e.pageY,
         lifetime,
 
         animating: true,
